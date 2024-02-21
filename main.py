@@ -15,6 +15,9 @@ def generate_trapezoidal_signal(number_periods: int,
                                 low_time_percent: float,
                                 show_graph: bool):
 
+    if (rise_time_percent + high_time_percent + fall_time_percent + low_time_percent) != 1:
+        raise Exception("Sum of percentages cannot be different than 1")
+
     amplitude = high_value - low_value
 
     points_rise = int(rise_time_percent * NUMBER_POINTS_PER_PERIOD)
@@ -58,14 +61,14 @@ def generate_trapezoidal_signal(number_periods: int,
 
 if __name__ == "__main__":
     # Example usage:
-    number_periods = 5
+    number_periods = 10
     frequency = 1000  # Hz
-    high_value = 5  # Volts
+    high_value = 100  # Volts
     low_value = -2.5  # Volts
-    rise_time_percent = 0.15  # percentage of period
-    high_time_percent = 0.3  # percentage of period
-    fall_time_percent = 0.15  # percentage of period
-    low_time_percent = 0.4  # percentage of period
+    rise_time_percent = 0.5  # percentage of period
+    high_time_percent = 0.1  # percentage of period
+    fall_time_percent = 0.2  # percentage of period
+    low_time_percent = 0.2  # percentage of period
 
     generated_signal = generate_trapezoidal_signal(
         number_periods=number_periods,
