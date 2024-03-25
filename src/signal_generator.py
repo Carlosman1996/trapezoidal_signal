@@ -1,18 +1,15 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 NUMBER_POINTS_PER_PERIOD = 20
 
 
 def generate_trapezoidal_signal(number_periods: int,
-                                frequency: float,
                                 high_value: float,
                                 low_value: float,
                                 rise_time_percent: float,
                                 high_time_percent: float,
                                 fall_time_percent: float,
-                                low_time_percent: float,
-                                show_graph: bool):
+                                low_time_percent: float):
 
     if (rise_time_percent + high_time_percent + fall_time_percent + low_time_percent) != 1:
         raise Exception("Sum of percentages cannot be different than 1")
@@ -43,25 +40,12 @@ def generate_trapezoidal_signal(number_periods: int,
 
     signal = np.tile(signal_period, number_periods)
 
-    if show_graph:
-        total_time = NUMBER_POINTS_PER_PERIOD * number_periods * (1 / frequency)
-
-        # Plotting the generated signal
-        time = np.linspace(0, total_time, len(signal))
-        plt.plot(time, signal)
-        plt.xlabel('Time (s)')
-        plt.ylabel('Amplitude (V)')
-        plt.title('Trapezoidal Signal')
-        plt.grid(True)
-        plt.show()
-
     return signal
 
 
 if __name__ == "__main__":
     # Example usage:
     number_periods = 1
-    frequency = 1000  # Hz
     high_value = 5    # Volts
     low_value = -5    # Volts
     rise_time_percent = 0.1  # percentage of period
@@ -71,13 +55,11 @@ if __name__ == "__main__":
 
     generated_signal = generate_trapezoidal_signal(
         number_periods=number_periods,
-        frequency=frequency,
         high_value=high_value,
         low_value=low_value,
         rise_time_percent=rise_time_percent,
         high_time_percent=high_time_percent,
         fall_time_percent=fall_time_percent,
-        low_time_percent=low_time_percent,
-        show_graph=True
+        low_time_percent=low_time_percent
     )
     print(generated_signal)

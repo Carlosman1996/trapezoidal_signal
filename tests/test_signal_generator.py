@@ -1,5 +1,5 @@
 import pytest
-from src import main
+from src import signal_generator as mg
 import numpy as np
 
 def test_happy_path():
@@ -7,7 +7,6 @@ def test_happy_path():
 
     # Run
     number_periods = 1
-    frequency = 1000  # Hz
     high_value = 5    # Volts
     low_value = -5    # Volts
     rise_time_percent = 0.1  # percentage of period
@@ -15,16 +14,14 @@ def test_happy_path():
     fall_time_percent = 0.1  # percentage of period
     low_time_percent = 0.4  # percentage of period
 
-    generated_signal = main.generate_trapezoidal_signal(
+    generated_signal = mg.generate_trapezoidal_signal(
         number_periods=number_periods,
-        frequency=frequency,
         high_value=high_value,
         low_value=low_value,
         rise_time_percent=rise_time_percent,
         high_time_percent=high_time_percent,
         fall_time_percent=fall_time_percent,
-        low_time_percent=low_time_percent,
-        show_graph=False
+        low_time_percent=low_time_percent
     )
 
     np.testing.assert_array_equal(test_signal, generated_signal)
