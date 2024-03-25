@@ -3,7 +3,7 @@ from src import main
 import numpy as np
 
 def test_happy_path():
-    test_signal = np.array([-5, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, -5, -5, -5, -5, -5, -5, -5, -5])
+    test_signal = np.array([-5, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, -5, -5, -5, -5, -5, -5, -5, -5, -1])
 
     # Run
     number_periods = 1
