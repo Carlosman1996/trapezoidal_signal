@@ -4,7 +4,6 @@ NUMBER_POINTS_PER_PERIOD = 20
 
 
 def generate_trapezoidal_signal(number_periods: int,
-                                frequency: float,
                                 high_value: float,
                                 low_value: float,
                                 rise_time_percent: float,
@@ -47,7 +46,6 @@ def generate_trapezoidal_signal(number_periods: int,
 if __name__ == "__main__":
     # Example usage:
     number_periods = 1
-    frequency = 1000  # Hz
     high_value = 5    # Volts
     low_value = -5    # Volts
     rise_time_percent = 0.1  # percentage of period
@@ -57,7 +55,6 @@ if __name__ == "__main__":
 
     generated_signal = generate_trapezoidal_signal(
         number_periods=number_periods,
-        frequency=frequency,
         high_value=high_value,
         low_value=low_value,
         rise_time_percent=rise_time_percent,

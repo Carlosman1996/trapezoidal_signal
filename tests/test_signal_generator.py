@@ -7,7 +7,6 @@ def test_happy_path():
 
     # Run
     number_periods = 1
-    frequency = 1000  # Hz
     high_value = 5    # Volts
     low_value = -5    # Volts
     rise_time_percent = 0.1  # percentage of period
@@ -17,7 +16,6 @@ def test_happy_path():
 
     generated_signal = mg.generate_trapezoidal_signal(
         number_periods=number_periods,
-        frequency=frequency,
         high_value=high_value,
         low_value=low_value,
         rise_time_percent=rise_time_percent,
