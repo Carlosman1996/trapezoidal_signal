@@ -61,14 +61,14 @@ def generate_trapezoidal_signal(number_periods: int,
 
 if __name__ == "__main__":
     # Example usage:
-    number_periods = 10
+    number_periods = 1
     frequency = 1000  # Hz
-    high_value = 100  # Volts
-    low_value = -2.5  # Volts
-    rise_time_percent = 0.5  # percentage of period
-    high_time_percent = 0.1  # percentage of period
-    fall_time_percent = 0.2  # percentage of period
-    low_time_percent = 0.2  # percentage of period
+    high_value = 5    # Volts
+    low_value = -5    # Volts
+    rise_time_percent = 0.1  # percentage of period
+    high_time_percent = 0.4  # percentage of period
+    fall_time_percent = 0.1  # percentage of period
+    low_time_percent = 0.4  # percentage of period
 
     generated_signal = generate_trapezoidal_signal(
         number_periods=number_periods,
@@ -81,3 +81,4 @@ if __name__ == "__main__":
         low_time_percent=low_time_percent,
         show_graph=True
     )
+    print(generated_signal)
